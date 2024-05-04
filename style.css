@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@200;400;700&display=swap');
+*{
+    box-sizing: border-box;
+}
+
+:root{
+    --primary-color:#141414;
+    --secondary-color:#373b69;
+}
+
+body{    
+    background: #141414;
+    font-family : 'poppins' ,sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    overflow: hidden; 
+}
+
+/* Adjustments for header */
+header {
+    width: 100%;
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: flex-start; /* Align items to the start (left) of the header */
+    padding: 1rem; /* Add padding for spacing */
+}
+
+/* Styles for logo */
+
+.logo {
+    width: 80px; /* Adjust the width of the logo as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: 3rem; /* Add margin to separate logo from search */
+}
+
+
+header h3 {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    position: absolute;
+    padding-left: 8rem;
+    color: #ea3e00;
+}
+
+
+/* Styles for search input */
+.search {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    padding: 0.5rem 1rem; /* Adjust padding as needed */
+    border-radius: 25px; /* Make search input round */
+    font-size: 1rem;
+    color: white;
+    
+    font-family: inherit;
+    flex: 1; /* Allow search input to grow and fill remaining space */
+}
+
+.search:focus {
+    outline: 0;
+    background-color: rgb(255, 174, 174);
+}
+
+.search::placeholder {
+    color: #7378c5;
+}
+
+
+#form {
+    background-color: var(--secondary-color) ;
+    border-radius: 50px;
+    margin-left: 30%;
+    justify-content:center;
+}
+
+/*main function styling*/
+#main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-height: calc(100vh - 250px); /* Adjust maximum height to accommodate genre tags and header */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+    padding-top: 5px; /* Add padding to accommodate genre tags */
+    padding-bottom: 50px;
+}
+
+
+.movie {
+    width: 20vw;
+    height: 10%;
+    margin: 1rem;
+    border-radius: 3px;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.2) ;
+    background-color:rgb(131, 48, 48);   /*  var(--secondary-color) */
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.movie img{
+   width: 100%;
+   height: 100%;
+   
+}
+/* rating &  title */
+.movie-info{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5 rem 1rem 1rem;
+    letter-spacing: 0.5px;
+    position: relative;
+
+}
+
+.movie-info h3 {
+    margin-top: 0;
+    padding: 0.1rem;
+    font-size: 16px;
+}
+
+.movie-info span{
+    
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+
+.movie-info span.green {
+    color: rgb(8, 248, 8);
+}
+
+
+.movie-info span.orange {
+    color: rgb(255, 166, 0);
+}
+
+
+.movie-info span.red {
+    color: rgb(255, 0, 0);
+}
+/* overview */
+.overview {
+    position:absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(255, 255, 255) ;
+    padding: 1rem;
+    max-height: 100%;
+    height: 40vh;
+    transform: translateY(101%);
+    transition: transform 0.3s ease-in;
+    overflow-y: auto;
+}
+
+.movie:hover .overview {
+    transform: translateY(0);
+}
+
+
+/* Movie not found error styling */
+.movie-not-found {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #ffcccc; /* Light red background */
+    border: 2px solid #ff6666; /* Red border */
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #660000; /* Dark red text */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+}
+
+.movie-not-found::before {
+    content: "Oops!";
+    display: block;
+    font-size: 36px;
+    color: #ff6666; /* Red */
+    margin-bottom: 10px;
+}
+
+.movie-not-found::after {
+    content: "Try searching for another movie!";
+    display: block;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+
+/* Add this CSS to your stylesheet */
+
+/* Adjustments for genre tags */
+#tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px 0; /* Add padding to the top and bottom */
+  }
+  
+  .tag {
+    padding: 8px 16px; /* Adjust padding as needed */
+    margin: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #20b2aa;
+    color: white;
+    transition: transform 0.3s; /* Add transition for smooth movement */
+  }
+  
+  .tag:hover {
+    transform: translateY(-5px); /* Move tag upwards on hover */
+  }
+  
+
+.user-login {
+    display: flex;
+    padding-left: 25rem;
+}
+
+.user-login a {
+    text-decoration: none; /* Remove underline */
+    color: #007bff; /* Default link color */
+    margin-right: 10px; /* Add spacing between links */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.user-login a:hover {
+    color: #0056b3; /* Darker color on hover */
+}
+
+.user-login {
+    display: flex;
+    align-items: center;
+}
+
+.login-link,
+.signup-link {
+    margin-right: 20px; /* Add spacing between links */
+    cursor: pointer; /* Add cursor pointer */
+}
+
+.login-link:hover,
+.signup-link:hover {
+    color: #007bff; /* Blue color on hover */
+}
+
+.user-login span {
+    color: white;
+}
+
+
+
+/* Media query for small screens */
+@media only screen and (max-width: 600px) {
+    body {
+      justify-content: flex-start; /* Align content to the start of the page */
+      padding: 0.5rem; /* Add padding to the body */
+    }
+  
+    header {
+      justify-content: flex-start; /* Align content to the start of the header */
+    }
+  
+    .search {
+       
+       background-color: var(--secondary-color);
+     
+       padding-left: 10px;
+
+    }
+
+    #form
+    {
+        background-color:var(--primary-color);
+    }
+    
+  
+    #main {
+      overflow-y: auto; /* Enable scrolling for main content */
+      max-height: calc(100vh - 150px); /* Adjust maximum height for main content */
+      padding: 0 1rem; /* Add padding to the sides */
+    }
+  
+    .movie {
+      width: calc(50% - 1rem); /* Adjust width for smaller screens */
+      margin: 0.5rem; /* Adjust margin for spacing between movie cards */
+    }
+  
+    .movie-info h3 {
+      font-size: 14px; /* Reduce font size for movie titles */
+    }
+  
+    .overview {
+      max-height: 150px; /* Adjust maximum height for overview section */
+      overflow-y: auto; /* Enable scrolling within the overview section */
+  
+    }
+
+        
+    .logo {
+        width: 80px; /* Adjust the width of the logo as needed */
+        height: auto; /* Maintain aspect ratio */
+        margin-left: 0rem; /* Add margin to separate logo from search */
+    }
+
+
+    header h3 {
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 23px;
+        position: absolute;
+        padding-left: 5rem;
+        color: #ea3e00;
+    }
+
+   
+
+  }
+  
+   
